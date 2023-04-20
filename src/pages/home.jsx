@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import {
   Card,
   CardBody,
@@ -13,8 +13,33 @@ import { UsersIcon } from "@heroicons/react/24/solid";
 import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData, contactData } from "@/data";
+import { addDoc, collection } from "@firebase/firestore"
+import { firestore } from "../firebase_setup/firebase"
+import { useRef } from 'react';
+import axios from '../axios';
 
 export function Home() {
+  const dataRef = useRef();
+  const [data,setData] = useState('asd');
+ 
+  const handleSubmit = (testdata) => {
+    console.log('testdata :',data)
+    axios.post('/habits/badHabits.json')
+            .then( (resp) => {
+                console.log(resp);
+            })
+    //     const ref = collection(firestore, "test_data") // Firebase creates this automatically
+    //  
+    //     let data = {
+    //         testData: testdata
+    //     }
+    //       console.log('data :',data)
+    //     try {
+    //         addDoc(ref, data)
+    //     } catch(err) {
+    //         console.log(err)
+    //     }
+    }
   return (
     <>
       <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
@@ -35,6 +60,10 @@ export function Home() {
                 Material Tailwind. It features multiple components based on the
                 Tailwind CSS and Material Design by Google.
               </Typography>
+              <form onSubmit={handleSubmit}>
+                <input type= "text"  />
+                <button type = "submit" style={{backgroundColor:'blue',color:'white'}}>Save</button>
+              </form>
             </div>
           </div>
         </div>
