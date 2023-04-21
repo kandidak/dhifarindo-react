@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardBody,
@@ -14,24 +14,32 @@ import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData, contactData } from "@/data";
 import { useForm } from "react-hook-form";
-import { addDoc, collection } from "@firebase/firestore"
-import { firestore } from "../firebase_setup/firebase"
-import { useRef } from 'react';
-import axios from '../axios';
+import { addDoc, collection } from "@firebase/firestore";
+import { firestore } from "../firebase_setup/firebase";
+import { useRef } from "react";
+import axios from "../axios";
+import { useNavigate } from "react-router-dom";
 
 export function Home() {
   const dataRef = useRef();
-  const [data,setData] = useState('asd');
-  const { handleSubmit, formState: { errors }, register } = useForm();
- 
+  const [data, setData] = useState("asd");
+  const {
+    handleSubmit,
+    formState: { errors },
+    register,
+  } = useForm();
+  const navigateTo = useNavigate();
+
+  const navigate = (path) => {
+    navigateTo(`${path}`);
+  };
   const onSubmit = (testdata) => {
-    console.log('testdata :',data)
-    axios.post('/habits/badHabits.json')
-            .then( (resp) => {
-                console.log(resp);
-            })
+    console.log("testdata :", data);
+    axios.post("/habits/badHabits.json").then((resp) => {
+      console.log(resp);
+    });
     //     const ref = collection(firestore, "test_data") // Firebase creates this automatically
-    //  
+    //
     //     let data = {
     //         testData: testdata
     //     }
@@ -41,10 +49,10 @@ export function Home() {
     //     } catch(err) {
     //         console.log(err)
     //     }
-    }
+  };
   return (
     <>
-      <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
+      <div className="relative flex h-screen content-center items-center justify-center pb-32 pt-16">
         <div className="absolute top-0 h-full w-full bg-[url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80')] bg-cover bg-center" />
         <div className="absolute top-0 h-full w-full bg-black/75 bg-cover bg-center" />
         <div className="max-w-8xl container relative mx-auto">
@@ -63,9 +71,17 @@ export function Home() {
                 Tailwind CSS and Material Design by Google.
               </Typography>
               <form onSubmit={handleSubmit(onSubmit)}>
-                <input type= "text"  />
-                <button type = "submit" style={{backgroundColor:'blue',color:'white'}}>Save</button>
-              </form>
+                        
+                <input type="text" />
+                        
+                <button
+                  type="submit"
+                  style={{ backgroundColor: "blue", color: "white" }}
+                >
+                  Save
+                </button>
+                      
+              </form>
             </div>
           </div>
         </div>
@@ -73,16 +89,24 @@ export function Home() {
       <section className="-mt-32 bg-gray-50 px-4 pb-20 pt-4">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {featuresData.map(({ color, title, icon, description }) => (
-              <FeatureCard
+            {featuresData.map(({ color, title, icon, description, path }) => (
+              <div
                 key={title}
-                color={color}
-                title={title}
-                icon={React.createElement(icon, {
-                  className: "w-5 h-5 text-white",
-                })}
-                description={description}
-              />
+                onClick={() => {
+                  navigate(path);
+                }}
+              >
+                <FeatureCard
+                  key={title}
+                  color={color}
+                  title={title}
+                  path={path}
+                  icon={React.createElement(icon, {
+                    className: "w-5 h-5 text-white",
+                  })}
+                  description={description}
+                />
+              </div>
             ))}
           </div>
           <div className="mt-32 flex flex-wrap items-center">
@@ -137,7 +161,7 @@ export function Home() {
           </div>
         </div>
       </section>
-      <section className="px-4 pt-20 pb-48">
+      <section className="px-4 pb-48 pt-20">
         <div className="container mx-auto">
           <PageTitle heading="Here are our heroes">
             According to the National Oceanic and Atmospheric Administration,
@@ -165,14 +189,14 @@ export function Home() {
           </div>
         </div>
       </section>
-      <section className="relative bg-blue-gray-50/50 py-24 px-4">
+      <section className="relative bg-blue-gray-50/50 px-4 py-24">
         <div className="container mx-auto">
           <PageTitle heading="Build something">
             Put the potentially record low maximum sea ice extent tihs year down
             to low ice. According to the National Oceanic and Atmospheric
             Administration, Ted, Scambos.
           </PageTitle>
-          <div className="mx-auto mt-20 mb-48 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto mb-48 mt-20 grid max-w-5xl grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-3">
             {contactData.map(({ title, icon, description }) => (
               <Card
                 key={title}

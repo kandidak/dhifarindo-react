@@ -7,7 +7,7 @@ import {
   DocumentTextIcon,
 } from "@heroicons/react/24/solid";
 
-export const routes = [
+export const routesNavbar = [
   {
     icon: HomeIcon,
     name: "home",
@@ -41,4 +41,4 @@ export const routes = [
   },
 ];
 
-export default routes;
+export default routesNavbar;

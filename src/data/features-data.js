@@ -7,6 +7,7 @@ import {
 export const featuresData = [
   {
     color: "blue",
+    path: "/training",
     title: "Training & Sertifikasi",
     icon: StarIcon,
     description:
@@ -14,6 +15,7 @@ export const featuresData = [
   },
   {
     color: "red",
+    path: "/hrms",
     title: "Human Resource & Employee Tools",
     icon: ArrowPathIcon,
     description:
@@ -21,6 +23,7 @@ export const featuresData = [
   },
   {
     color: "teal",
+    path: "",
     title: "[On Development] Dhifarindo Trading & Wisata",
     icon: FingerPrintIcon,
     description:
@@ -28,6 +31,7 @@ export const featuresData = [
   },
   {
     color: "green",
+    path: "",
     title: "[On Development] Research Gate Dhifarindo Institute",
     icon: FingerPrintIcon,
     description:
