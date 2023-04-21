@@ -13,6 +13,7 @@ import { UsersIcon } from "@heroicons/react/24/solid";
 import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData, contactData } from "@/data";
+import { useForm } from "react-hook-form";
 import { addDoc, collection } from "@firebase/firestore"
 import { firestore } from "../firebase_setup/firebase"
 import { useRef } from 'react';
@@ -21,8 +22,9 @@ import axios from '../axios';
 export function Home() {
   const dataRef = useRef();
   const [data,setData] = useState('asd');
+  const { handleSubmit, formState: { errors }, register } = useForm();
  
-  const handleSubmit = (testdata) => {
+  const onSubmit = (testdata) => {
     console.log('testdata :',data)
     axios.post('/habits/badHabits.json')
             .then( (resp) => {
@@ -60,7 +62,7 @@ export function Home() {
                 Material Tailwind. It features multiple components based on the
                 Tailwind CSS and Material Design by Google.
               </Typography>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <input type= "text"  />
                 <button type = "submit" style={{backgroundColor:'blue',color:'white'}}>Save</button>
               </form>
