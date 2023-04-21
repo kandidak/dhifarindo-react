@@ -8,10 +8,10 @@ export const featuresData = [
   {
     color: "blue",
     path: "/training",
-    title: "Training & Sertifikasi",
+    title: "Dhifarindo Trainings & Certification",
     icon: StarIcon,
     description:
-      "Divide details about your product or agency work into parts. A paragraph describing a feature will be enough.",
+      "Trainings and certification for your product's company.",
   },
   {
     color: "red",
@@ -19,23 +19,23 @@ export const featuresData = [
     title: "Human Resource & Employee Tools",
     icon: ArrowPathIcon,
     description:
-      "Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious.",
+      "Solutions for your company to manage your employees.",
   },
   {
     color: "teal",
     path: "",
-    title: "[On Development] Dhifarindo Trading & Wisata",
+    title: "Dhifarindo Trading & Wisata",
     icon: FingerPrintIcon,
     description:
-      "Write a few lines about each one. A paragraph describing a feature will be enough. Keep you user engaged!",
+      "This feature is currently on development.",
   },
   {
     color: "green",
     path: "",
-    title: "[On Development] Research Gate Dhifarindo Institute",
+    title: "Research Gate Dhifarindo Institute",
     icon: FingerPrintIcon,
     description:
-      "Write a few lines about each one. A paragraph describing a feature will be enough. Keep you user engaged!",
+      "This feature is currently on development.",
   },
 ];
 

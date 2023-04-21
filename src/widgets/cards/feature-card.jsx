@@ -5,17 +5,10 @@ import {
   Typography,
   IconButton,
 } from "@material-tailwind/react";
-// import { useNavigate } from "react-router-dom";
 
-// const navigateTo = useNavigate();
-
-// const navigate = (path) => {
-//   navigateTo(`/${path}`)
-// }
-
-export function FeatureCard({ color, icon, title, description, path }) {
+export function FeatureCard({ color, icon, title, description }) {
   return (
-    <Card className="rounded-2xl shadow-lg shadow-gray-500/10 hover:scale-105 cursor-pointer">
+    <Card className="rounded-2xl shadow-lg h-64 shadow-gray-500/10 hover:scale-105 cursor-pointer">
       <CardBody className="px-8 text-center">
         <IconButton
           variant="gradient"
@@ -65,7 +58,6 @@ FeatureCard.propTypes = {
   icon: PropTypes.node.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.node.isRequired,
-  onClick: PropTypes.func,
 };
 
 FeatureCard.displayName = "/src/widgets/layout/feature-card.jsx";
