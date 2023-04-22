@@ -66,9 +66,7 @@ export function Home() {
                 Your story starts with us.
               </Typography>
               <Typography variant="lead" color="white" className="opacity-80">
-                This is a simple example of a Landing Page you can build using
-                Material Tailwind. It features multiple components based on the
-                Tailwind CSS and Material Design by Google.
+              Dhifarindo Global is a company engaged in quality management consulting and training and always provides the best service.
               </Typography>
               <form onSubmit={handleSubmit(onSubmit)}>
                         

@@ -41,7 +41,7 @@ export function Profile() {
                 <div className="mb-16 flex items-center justify-center gap-2">
                   <MapPinIcon className="-mt-px h-4 w-4 text-blue-gray-700" />
                   <Typography className="font-medium text-blue-gray-700">
-                    Cluster Sriwedari Blok P12 No. 10, Pejuang, Kecamatan Medan Satria, Kota Bekasi, Jawa Barat
+                    Cluster Sriwedari Blok P12 No. 10 Taman Harapan Baru, Pejuang, Kecamatan Medan Satria, Kota Bekasi, Jawa Barat
                   </Typography>
                 </div>
                 <div className="mb-2 flex items-center justify-center gap-2">

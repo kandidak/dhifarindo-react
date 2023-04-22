@@ -5,6 +5,7 @@ import {
   ArrowRightOnRectangleIcon,
   UserPlusIcon,
   DocumentTextIcon,
+  UsersIcon,
 } from "@heroicons/react/24/solid";
 
 export const routesNavbar = [
@@ -16,8 +17,14 @@ export const routesNavbar = [
   },
   {
     icon: UserCircleIcon,
-    name: "profile",
+    name: "company profile",
     path: "/profile",
+    element: <Profile />,
+  },
+  {
+    icon: UsersIcon,
+    name: "customers",
+    path: "/customers",
     element: <Profile />,
   },
   {
