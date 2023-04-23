@@ -1,37 +1,45 @@
 import {
   StarIcon,
   ArrowPathIcon,
+  PaperClipIcon,
   FingerPrintIcon,
+  UserGroupIcon,
+  BuildingOfficeIcon,
+  AcademicCapIcon,
 } from "@heroicons/react/24/solid";
 
 export const featuresData = [
   {
     color: "blue",
-    title: "Training & Sertifikasi",
-    icon: StarIcon,
+    path: "/training",
+    title: "Dhifarindo Trainings & Certification",
+    icon: PaperClipIcon,
     description:
-      "Divide details about your product or agency work into parts. A paragraph describing a feature will be enough.",
+      "Trainings and certification for your product's company.",
   },
   {
     color: "red",
+    path: "/hrms",
     title: "Human Resource & Employee Tools",
-    icon: ArrowPathIcon,
+    icon: UserGroupIcon,
     description:
-      "Keep you user engaged by providing meaningful information. Remember that by this time, the user is curious.",
+      "Solutions for your company to manage your employees.",
   },
   {
     color: "teal",
-    title: "[On Development] Dhifarindo Trading & Wisata",
-    icon: FingerPrintIcon,
+    path: "",
+    title: "Dhifarindo Trading & Wisata",
+    icon: BuildingOfficeIcon,
     description:
-      "Write a few lines about each one. A paragraph describing a feature will be enough. Keep you user engaged!",
+      "This feature is currently on development.",
   },
   {
     color: "green",
-    title: "[On Development] Research Gate Dhifarindo Institute",
-    icon: FingerPrintIcon,
+    path: "",
+    title: "Research Gate Dhifarindo Institute",
+    icon: AcademicCapIcon,
     description:
-      "Write a few lines about each one. A paragraph describing a feature will be enough. Keep you user engaged!",
+      "This feature is currently on development.",
   },
 ];
 

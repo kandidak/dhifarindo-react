@@ -5,9 +5,10 @@ import {
   ArrowRightOnRectangleIcon,
   UserPlusIcon,
   DocumentTextIcon,
+  UsersIcon,
 } from "@heroicons/react/24/solid";
 
-export const routes = [
+export const routesNavbar = [
   {
     icon: HomeIcon,
     name: "home",
@@ -16,8 +17,14 @@ export const routes = [
   },
   {
     icon: UserCircleIcon,
-    name: "profile",
+    name: "company profile",
     path: "/profile",
+    element: <Profile />,
+  },
+  {
+    icon: UsersIcon,
+    name: "customers",
+    path: "/customers",
     element: <Profile />,
   },
   {
@@ -41,4 +48,4 @@ export const routes = [
   },
 ];
 
-export default routes;
+export default routesNavbar;
