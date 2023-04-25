@@ -1,14 +1,18 @@
-import React from "react";
-import { Card, Typography, Button, Input, Textarea } from "@material-tailwind/react";
+import React, { useState } from "react";
+import { Card, Typography, Button, Input, Textarea, Select, Option } from "@material-tailwind/react";
 import {
   MapPinIcon,
   BriefcaseIcon,
   BuildingLibraryIcon,
 } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
 import { contactData } from "@/data";
 import { PageTitle, Footer } from "@/widgets/layout";
 
 export function Profile() {
+  const [ companyName, setCompanyName ] = useState();
+  const [ product, setProduct ] = useState();
+
   return (
     <>
       <section className="relative block h-[50vh]">
@@ -101,16 +105,32 @@ export function Profile() {
           <PageTitle heading="Want to work with us?">
             Complete this form and we will get back to you in 24 hours.
           </PageTitle>
-          <form className="mx-auto mt-12 max-w-3xl text-center">
-            <div className="mb-8 flex gap-8">
+          <form className="mx-auto mt-12 max-w-3xl">
+            <div className="grid grid-cols-2 mb-8 gap-8">
               <Input variant="standard" size="lg" label="Full Name" required />
               <Input variant="standard" size="lg" label="Email Address" required />
-              <Input variant="standard" size="lg" label="Phone Number" required />
+              <Input type="number" variant="standard" size="lg" label="Phone Number" required />
+              <Input variant="standard" size="lg" label="Company Name" onChange={(e)=>setCompanyName(e.target.value)} />
+              {companyName ? <Input type="number" variant="standard" size="lg" label="Number of Employee" /> : ''}
+              <Select variant="static" size="lg" label="Select Product" onChange={(e)=>setProduct(e)}>
+                <Option value="training">Trainings & Certification</Option>
+                <Option value="hrms">Human Resource & Employee Tools</Option>
+              </Select>
             </div>
+            <div className="mt-4">
             <Textarea variant="standard" size="lg" label="Message" rows={8} />
-            <Button variant="gradient" size="lg" className="mt-8">
-              Send Message
-            </Button>
+            </div>
+            <div className="flex gap-6">
+              <Button variant="gradient" size="lg" className="mt-8">
+                Send Message
+              </Button>
+              {product == 'hrms' ? 
+              <Link to='https://dhifarindo.pengaduanthr.com/home' target="_blank">
+                <Button variant="gradient" size="lg" className="mt-8">
+                  Try DEMO
+                </Button>
+              </Link> : ''}
+            </div>
           </form>
         </div>
       </section>

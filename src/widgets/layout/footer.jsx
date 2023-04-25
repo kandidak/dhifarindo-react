@@ -79,40 +79,40 @@ export function Footer({ title, description, socials, menus, copyright }) {
 }
 
 Footer.defaultProps = {
-  title: "Material Tailwind",
-  description:
-    "Easy to use React components for Tailwind CSS and Material Design.",
+  title: "Dhifarindo Global",
+  // description:
+  //   "Easy to use React components for Tailwind CSS and Material Design.",
   socials: [
     {
       color: "blue",
       name: "facebook",
-      path: "https://www.facebook.com/CreativeTim",
+      path: "https://www.facebook.com/people/Dhifarindo-Global-Consultant-Travel/100054216771400/?locale=pt_PT",
     },
-    {
-      color: "light-blue",
-      name: "twitter",
-      path: "https://www.twitter.com/creativetim",
-    },
+    // {
+    //   color: "light-blue",
+    //   name: "twitter",
+    //   path: "https://www.twitter.com/creativetim",
+    // },
     {
       color: "purple",
       name: "instagram",
-      path: "https://www.instagram.com/creativetimofficial/",
+      path: "https://www.instagram.com/dhifarindoglobal/",
     },
-    {
-      color: "pink",
-      name: "dribbble",
-      path: "https://www.dribbble.com/creativetim",
-    },
-    {
-      color: "red",
-      name: "youtube",
-      path: "https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w",
-    },
-    {
-      color: "black",
-      name: "github",
-      path: "https://github.com/creativetimofficial/material-tailwind",
-    },
+    // {
+    //   color: "pink",
+    //   name: "dribbble",
+    //   path: "https://www.dribbble.com/creativetim",
+    // },
+    // {
+    //   color: "red",
+    //   name: "youtube",
+    //   path: "https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w",
+    // },
+    // {
+    //   color: "black",
+    //   name: "github",
+    //   path: "https://github.com/creativetimofficial/material-tailwind",
+    // },
   ],
   menus: [
     {

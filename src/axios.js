@@ -1,4 +1,5 @@
-import axios from 'axios';
+import Axios from 'axios';
+import _ from 'lodash';
 
 // const instance = axios.create({
 //     baseURL : 'http:localhost:8800',
@@ -6,9 +7,15 @@ import axios from 'axios';
 //     withCredentials:true
 // });
 
-axios.defaults.baseURL = 'http:localhost:8800';
-axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
-axios.defaults.headers.post['Content-Type'] = 'application/json';
+// axios.defaults.baseURL = 'http:localhost:5000';
+// axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
+// axios.defaults.headers.post['Content-Type'] = 'application/json';
+
+export const baseURLStaging = 'http://localhost:5000/';
+
+const axios = Axios.create({
+    baseURL: baseURLStaging,
+});
 
 axios.interceptors.request.use(request => {
     console.log(request);

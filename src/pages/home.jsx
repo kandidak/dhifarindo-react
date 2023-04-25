@@ -33,9 +33,10 @@ export function Home() {
   const navigate = (path) => {
     navigateTo(`${path}`);
   };
+  
   const onSubmit = (testdata) => {
     console.log("testdata :", data);
-    axios.post("/habits/badHabits.json").then((resp) => {
+    axios.get(`main-content`).then((resp) => {
       console.log(resp);
     });
     //     const ref = collection(firestore, "test_data") // Firebase creates this automatically
