@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Avatar, Typography, Button } from "@material-tailwind/react";
 import {
   MapPinIcon,
@@ -10,26 +10,9 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import {trainings} from "./trainings";
 
 export function Training() {
-  let judul = [
-    {
-      id: 1,
-      judul: 'MATERI PELATIHAN_ISO 9001:2015',
-      materi1: 'sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss'
-    },
-    {
-      id: 2,
-      judul: 'MATERI PELATIHAN_ISO 14001:2015',
-      materi1: 'ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd'
-    },
-    {
-      id: 1,
-      judul: 'MATERI PELATIHAN_HSMS-OHSAS 18001:2007',
-      materi1: 'fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff'
-    },
-  ]
-
   return (
     <>
       <section className="relative block h-[50vh]">
@@ -47,7 +30,7 @@ export function Training() {
                       <Avatar
                         src="/img/training-sertifikasi.jpg"
                         alt="Profile picture"
-                        variant="square"
+                        // variant="square"
                         className="h-full w-full shadow-xl"
                       />
                       {/* <img src="/img/logo.png"></img> */}
@@ -64,26 +47,49 @@ export function Training() {
               <div className="mb-10 border-t border-blue-gray-50 py-6">
                 <div className="mt-2 flex flex-wrap justify-center">
                   <div className="flex w-full flex-col items-center px-4 lg:w-9/12">
-                  <ol className="list-[upper-roman]">
-                    {judul.map(x=>{
+                    {trainings.map(x=>{
                       return(
-                        <Accordion>
-                        <AccordionSummary
-                          expandIcon={<ExpandMoreIcon />}
-                          aria-controls="panel1a-content"
-                          id="panel1a-header"
-                        >
-                          <Typography className="font-bold text-blue-gray-500 text-lg">{x.judul}</Typography>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                          <Typography>
-                            {x.materi1}
-                          </Typography>
-                        </AccordionDetails>
-                      </Accordion>
+                        <Accordion className="mt-5 w-full">
+                          <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                          >
+                            <Typography variant="h2" className="text-blue-gray-500 text-lg">{x.judul}</Typography>
+                          </AccordionSummary>
+                          <AccordionDetails>
+                            <Typography color="blue-gray" className="mb-2">
+                              {x.materi !== null ? (
+                              <ol className="list-decimal px-5">
+                                {x.materi?.map((y,i)=>{
+                                  return(
+                                    <li key={i}>
+                                      {y.listMateri}
+                                    </li>
+                                  )}
+                                )}
+                              </ol>
+                              ) : 'Sedang Dalam Pengembangan'}
+
+                              <hr className="my-5" />
+
+                              <Typography variant="h2" className="text-blue-gray-500 text-lg">Tujuan {x.judul}</Typography>
+                              {x.tujuan !== null ? (
+                              <ol className="list-decimal px-5 pt-5">
+                              {x.tujuan?.map((z,i)=>{
+                                return(
+                                  <li key={i}>
+                                    {z.listTujuan}
+                                  </li>
+                                )
+                              })}
+                              </ol>
+                              ) : 'Sedang Dalam Pengembangan'}
+                            </Typography>
+                          </AccordionDetails>
+                        </Accordion>
                       )
                     })}
-                    </ol>
                   </div>
                 </div>
               </div>

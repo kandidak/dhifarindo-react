@@ -6,23 +6,17 @@ import {
   Typography,
   Button,
   IconButton,
-  Input,
-  Textarea,
 } from "@material-tailwind/react";
 import { UsersIcon } from "@heroicons/react/24/solid";
 import { PageTitle, Footer } from "@/widgets/layout";
 import { FeatureCard, TeamCard } from "@/widgets/cards";
 import { featuresData, teamData } from "@/data";
 import { useForm } from "react-hook-form";
-import { addDoc, collection } from "@firebase/firestore";
-import { firestore } from "../firebase_setup/firebase";
 import { useRef } from "react";
 import axios from "../axios";
 import { useNavigate } from "react-router-dom";
 
 export function Home() {
-  const dataRef = useRef();
-  const [data, setData] = useState("asd");
   const {
     handleSubmit,
     formState: { errors },
@@ -34,22 +28,10 @@ export function Home() {
     navigateTo(`${path}`);
   };
   
-  const onSubmit = (testdata) => {
-    console.log("testdata :", data);
+  const onSubmit = () => {
     axios.get(`main-content`).then((resp) => {
-      console.log(resp);
+      console.log(resp.data);
     });
-    //     const ref = collection(firestore, "test_data") // Firebase creates this automatically
-    //
-    //     let data = {
-    //         testData: testdata
-    //     }
-    //       console.log('data :',data)
-    //     try {
-    //         addDoc(ref, data)
-    //     } catch(err) {
-    //         console.log(err)
-    //     }
   };
   return (
     <>
