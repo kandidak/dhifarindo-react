@@ -1,5 +1,16 @@
-import React, { useState } from "react";
-import { Card, Typography, Button, Input, Textarea, Select, Option } from "@material-tailwind/react";
+import React, { useEffect, useState } from "react";
+import { Card,
+  Typography,
+  Button,
+  Input,
+  Textarea,
+  Select,
+  Option,
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem, } from "@material-tailwind/react";
+import { useCountries } from "use-react-countries";
 import {
   MapPinIcon,
   BriefcaseIcon,
@@ -8,10 +19,39 @@ import {
 import { Link } from "react-router-dom";
 import { contactData } from "@/data";
 import { PageTitle, Footer } from "@/widgets/layout";
+import { useForm } from "react-hook-form";
+import axios from "../axios";
 
 export function Profile() {
   const [ companyName, setCompanyName ] = useState();
   const [ product, setProduct ] = useState();
+  const [ nameContact, setNameContact ] = useState();
+  const [ email, setEmail ] = useState();
+  const [ phoneNumber, setPhoneNumber ] = useState();
+  const [ numberOfEmployee, setNumberOfEmployee ] = useState();
+  const [ message, setMessage ] = useState();
+  const { countries } = useCountries();
+  const [country, setCountry] = useState(182);
+  const { name, flags, countryCallingCode } = countries[country];
+  const {
+    handleSubmit,
+    formState: { errors },
+    register,
+  } = useForm();
+
+  const submitContact =async () => {
+    const dataToPost = {
+      name : nameContact,
+      email : email,
+      phoneNumber : countryCallingCode + phoneNumber,
+      companyName : companyName,
+      numberOfEmployee: numberOfEmployee,
+      product: product,
+      message: message,
+    }
+
+    await axios.post(`/contacts`, dataToPost)
+  }
 
   return (
     <>
@@ -105,23 +145,63 @@ export function Profile() {
           <PageTitle heading="Want to work with us?">
             Complete this form and we will get back to you in 24 hours.
           </PageTitle>
-          <form className="mx-auto mt-12 max-w-3xl">
+          <form className="mx-auto mt-12 max-w-3xl" onSubmit={handleSubmit(submitContact)}>
             <div className="grid grid-cols-2 mb-8 gap-8">
-              <Input variant="standard" size="lg" label="Full Name" required />
-              <Input variant="standard" size="lg" label="Email Address" required />
-              <Input type="number" variant="standard" size="lg" label="Phone Number" required />
-              <Input variant="standard" size="lg" label="Company Name" onChange={(e)=>setCompanyName(e.target.value)} />
-              {companyName ? <Input type="number" variant="standard" size="lg" label="Number of Employee" /> : ''}
-              <Select variant="static" size="lg" label="Select Product" onChange={(e)=>setProduct(e)}>
-                <Option value="training">Trainings & Certification</Option>
-                <Option value="hrms">Human Resource & Employee Tools</Option>
+              <Input label="Full Name" onChange={(e)=>setNameContact(e.target.value)} required />
+              <Input type="email" label="Email Address" onChange={(e)=>setEmail(e.target.value)} required />
+              <div className="flex">
+              <Menu placement="bottom-start">
+                <MenuHandler>
+                  <Button
+                    ripple={false}
+                    variant="text"
+                    color="blue-gray"
+                    className="flex h-10 items-center gap-2 rounded-r-none border border-r-0 border-blue-gray-200 bg-blue-gray-500/10 pl-3"
+                  >
+                    <img
+                      src={flags.svg}
+                      alt={name}
+                      className="h-4 w-4 rounded-full object-cover"
+                    />
+                    {countryCallingCode}
+                  </Button>
+                </MenuHandler>
+                <MenuList className="max-h-[20rem] max-w-[18rem]">
+                  {countries.map(
+                    ({ name, flags, countryCallingCode }, index) => {
+                      return (
+                        <MenuItem
+                          key={name}
+                          value={name}
+                          className="flex items-center gap-2"
+                          onClick={() => setCountry(index)}
+                        >
+                          <img
+                            src={flags.svg}
+                            alt={name}
+                            className="h-5 w-5 rounded-full object-cover"
+                          />
+                          {name} <span className="ml-auto">{countryCallingCode}</span>
+                        </MenuItem>
+                      );
+                    }
+                  )}
+                </MenuList>
+              </Menu>
+              <Input type="tel" className="rounded-l-none" label="Phone Number" onChange={(e)=>setPhoneNumber(e.target.value)} required />
+              </div>
+              <Input label="Company Name" onChange={(e)=>setCompanyName(e.target.value)} />
+              {companyName ? <Input type="number" label="Number of Employee" onChange={(e)=>setNumberOfEmployee(e.target.value)} /> : ''}
+              <Select label="Select Product" onChange={(e)=>setProduct(e)}>
+                <Option value="Trainings & Certification">Trainings & Certification</Option>
+                <Option value="Human Resource & Employee Tools">Human Resource & Employee Tools</Option>
               </Select>
             </div>
             <div className="mt-4">
-            <Textarea variant="standard" size="lg" label="Message" rows={8} />
+            <Textarea label="Message" rows={8} onChange={(e)=>setMessage(e.target.value)} />
             </div>
             <div className="flex gap-6">
-              <Button variant="gradient" size="lg" className="mt-8">
+              <Button type="submit" variant="gradient" size="lg" className="mt-8">
                 Send Message
               </Button>
               {product == 'hrms' ? 
