@@ -15,7 +15,7 @@ export const featuresData = [
     title: "Dhifarindo Trainings & Certification",
     icon: PaperClipIcon,
     description:
-      "Trainings and certification for your product's company.",
+      "Pelatihan dan sertifikasi untuk produk perusahaan anda.",
   },
   {
     color: "red",
@@ -23,7 +23,7 @@ export const featuresData = [
     title: "Human Resource & Employee Tools",
     icon: UserGroupIcon,
     description:
-      "Solutions for your company to manage your employees.",
+      "Solusi bagi perusahaan dalam memanajemen pegawai atau karyawan.",
   },
   {
     color: "teal",
@@ -31,7 +31,7 @@ export const featuresData = [
     title: "Dhifarindo Trading & Wisata",
     icon: BuildingOfficeIcon,
     description:
-      "This feature is currently on development.",
+      "Fitur ini sedang dalam tahap pengembangan.",
   },
   {
     color: "green",
@@ -39,7 +39,7 @@ export const featuresData = [
     title: "Research Gate Dhifarindo Institute",
     icon: AcademicCapIcon,
     description:
-      "This feature is currently on development.",
+      "Fitur ini sedang dalam tahap pengembangan.",
   },
 ];
 

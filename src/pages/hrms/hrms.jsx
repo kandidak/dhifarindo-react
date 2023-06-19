@@ -134,8 +134,9 @@ export function Hrms() {
                       </CardBody>
                     </Card>
                   </div>
-                  <div className="grid grid-cols-2 gap-6 flex w-full px-4 t w-2/3 pt-[80px]">
-                  <Card className="shadow-lg shadow-gray-500/10">
+                  <div className="grid grid-cols-4 flex w-full px-4 t pt-[80px] object-center">
+                    <div className="flex col-span-2 justify-center">
+                  <Card className="shadow-lg shadow-gray-500/10 w-1/2">
                       <CardHeader className="relative h-56">
                         <img
                           alt="Card Image"
@@ -156,7 +157,9 @@ export function Hrms() {
                         </Typography>
                       </CardBody>
                     </Card>
-                    <Card className="shadow-lg shadow-gray-500/10">
+                    </div>
+                    <div className="flex col-span-2 justify-center">
+                    <Card className="shadow-lg shadow-gray-500/10 w-1/2">
                       <CardHeader className="relative h-56">
                         <img
                           alt="Card Image"
@@ -177,6 +180,7 @@ export function Hrms() {
                         </Typography>
                       </CardBody>
                     </Card>
+                    </div>
                   </div>
                 </div>
               </div>

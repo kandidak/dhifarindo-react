@@ -79,25 +79,13 @@ export function Profile() {
                 </div>
               </div>
               <div className="my-8 text-center">
-                <Typography variant="h2" color="blue-gray" className="mb-2">
+                <Typography variant="h1" color="blue-gray" className="mb-2">
                   Dhifarindo Global
                 </Typography>
                 <div className="mb-16 flex items-center justify-center gap-2">
                   <MapPinIcon className="-mt-px h-4 w-4 text-blue-gray-700" />
                   <Typography className="font-medium text-blue-gray-700">
                     Cluster Sriwedari Blok P12 No. 10 Taman Harapan Baru, Pejuang, Kecamatan Medan Satria, Kota Bekasi, Jawa Barat
-                  </Typography>
-                </div>
-                <div className="mb-2 flex items-center justify-center gap-2">
-                  <BriefcaseIcon className="-mt-px h-4 w-4 text-blue-gray-700" />
-                  <Typography className="font-medium text-blue-gray-700">
-                    Solution Manager - Creative Tim Officer
-                  </Typography>
-                </div>
-                <div className="mb-2 flex items-center justify-center gap-2">
-                  <BuildingLibraryIcon className="-mt-px h-4 w-4 text-blue-gray-700" />
-                  <Typography className="font-medium text-blue-gray-700">
-                    University of Computer Science
                   </Typography>
                 </div>
               </div>
@@ -113,9 +101,9 @@ export function Profile() {
           </div>
         </div>
       </section>
-      <section className="relative bg-blue-gray-50/50 px-4 py-24">
+      <section className="relative bg-blue-gray-50/50 px-4">
         <div className="container mx-auto">
-          <PageTitle heading="Build something">
+          {/* <PageTitle heading="Build something">
             Put the potentially record low maximum sea ice extent tihs year down
             to low ice. According to the National Oceanic and Atmospheric
             Administration, Ted, Scambos.
@@ -141,7 +129,7 @@ export function Profile() {
                 </Typography>
               </Card>
             ))}
-          </div>
+          </div> */}
           <PageTitle heading="Want to work with us?">
             Complete this form and we will get back to you in 24 hours.
           </PageTitle>
@@ -204,7 +192,7 @@ export function Profile() {
               <Button type="submit" variant="gradient" size="lg" className="mt-8">
                 Send Message
               </Button>
-              {product == 'hrms' ? 
+              {product == 'Human Resource & Employee Tools' ? 
               <Link to='https://dhifarindo.pengaduanthr.com/home' target="_blank">
                 <Button variant="gradient" size="lg" className="mt-8">
                   Try DEMO

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Card,
   CardBody,
@@ -33,10 +33,79 @@ export function Home() {
       console.log(resp.data);
     });
   };
+
+  const judul = [
+  {
+    id: 1,
+    judul: "MATERI PELATIHAN_ISO 9001:2015",
+  },
+  {
+    id: 2,
+    judul: 'MATERI PELATIHAN_ISO 14001:2015'
+  },
+]
+
+const materi = [
+  {
+    idJudul: 1,
+    id: 1,
+    materi: 'abcd'
+  },
+  {
+    idJudul: 1,
+    id: 2,
+    materi: 'efgh'
+  },
+  {
+    idJudul: 2,
+    id: 3,
+    materi: 'ijkl'
+  },
+  {
+    idJudul: 2,
+    id: 4,
+    materi: 'mnop'
+  },
+]
+
+const tujuan = [
+  {
+    idJudul: 1,
+    id: 1,
+    tujuan: 'abcd'
+  },
+  {
+    idJudul: 1,
+    id: 2,
+    tujuan: 'efgh'
+  }
+]
+
+useEffect(()=>{
+  // console.log('materiFind', judul.map((x=>{
+  //   const materiss = materi.filter(y=>x.id === y.idJudul)
+  //   return{
+  //     ...materiss
+  //   }
+  // })))
+  const result = judul.map((x=>{
+    const materiss = materi.filter(y => x.id === y.idJudul)
+    const tujuanss = tujuan.filter(z=>x.id === z.idJudul)
+    console.log('materiss',materiss)
+    if(materiss || tujuanss){
+      return{
+        ...x,
+        materi: materiss,
+        tujuan: tujuanss
+      }
+    }
+  }))
+  console.log(result)
+},[])
   return (
     <>
       <div className="relative flex h-screen content-center items-center justify-center pb-32 pt-16">
-        <div className="absolute top-0 h-full w-full bg-[url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80')] bg-cover bg-center" />
+        <div className="absolute top-0 h-full w-full bg-[url('/img/dhifarindo-global-banner.jpeg')] bg-cover bg-center" />
         <div className="absolute top-0 h-full w-full bg-black/75 bg-cover bg-center" />
         <div className="max-w-8xl container relative mx-auto">
           <div className="flex flex-wrap items-center">
@@ -49,9 +118,9 @@ export function Home() {
                 Your story starts with us.
               </Typography>
               <Typography variant="lead" color="white" className="opacity-80">
-              Dhifarindo Global is a company engaged in quality management consulting and training and always provides the best service.
+              <a className="font-bold">Dhifarindo Global</a> adalah perusahaan yang bergerak di bidang konsultan manajemen dan training yang berkualitas dan selalu memberikan pelayanan yang terbaik.
               </Typography>
-              <form onSubmit={handleSubmit(onSubmit)}>
+              {/* <form onSubmit={handleSubmit(onSubmit)}>
                         
                 <input type="text" />
                         
@@ -62,7 +131,7 @@ export function Home() {
                   Save
                 </button>
                       
-              </form>
+              </form> */}
             </div>
           </div>
         </div>
@@ -144,27 +213,24 @@ export function Home() {
       </section>
       <section className="px-4 pb-48 pt-20">
         <div className="container mx-auto">
-          <PageTitle heading="Here are our heroes">
-            According to the National Oceanic and Atmospheric Administration,
-            Ted, Scambos, NSIDClead scentist, puts the potentially record
-            maximum.
+          <PageTitle heading="Direksi Dhifarindo Global">
           </PageTitle>
-          <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-24 grid grid-cols-1 gap-12 gap-x-24 md:grid-cols-2 xl:grid-cols-3">
             {teamData.map(({ img, name, position, socials }) => (
               <TeamCard
                 key={name}
                 img={img}
                 name={name}
                 position={position}
-                socials={
-                  <div className="flex items-center gap-2">
-                    {socials.map(({ color, name }) => (
-                      <IconButton key={name} color={color} variant="text">
-                        <i className={`fa-brands text-lg fa-${name}`} />
-                      </IconButton>
-                    ))}
-                  </div>
-                }
+                // socials={
+                //   <div className="flex items-center gap-2">
+                //     {socials.map(({ color, name }) => (
+                //       <IconButton key={name} color={color} variant="text">
+                //         <i className={`fa-brands text-lg fa-${name}`} />
+                //       </IconButton>
+                //     ))}
+                //   </div>
+                // }
               />
             ))}
           </div>
