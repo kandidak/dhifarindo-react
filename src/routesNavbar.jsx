@@ -1,4 +1,6 @@
-import { Home, Profile, SignIn } from "@/pages";
+import { Home, Profile } from "@/pages";
+import Training from "./pages/training/training";
+import Hrms from "./pages/hrms/hrms";
 import {
   HomeIcon,
   UserCircleIcon,
@@ -22,30 +24,42 @@ export const routesNavbar = [
     element: <Profile />,
   },
   {
-    icon: UsersIcon,
-    name: "customers",
-    path: "/customers",
-    element: <Profile />,
+    icon: DocumentTextIcon,
+    name: "training",
+    path: "/training",
+    element: <Training />,
   },
   {
-    icon: ArrowRightOnRectangleIcon,
-    name: "Sign In",
-    path: "/sign-in",
-    element: <SignIn />,
+    icon: UserPlusIcon,
+    name: "hrms",
+    path: "/hrms",
+    element: <Hrms />,
   },
+  // {
+  //   icon: UsersIcon,
+  //   name: "customers",
+  //   path: "/customers",
+  //   element: <Profile />,
+  // },
+  // {
+  //   icon: ArrowRightOnRectangleIcon,
+  //   name: "Sign In",
+  //   path: "/sign-in",
+  //   element: <SignIn />,
+  // },
   // {
   //   icon: UserPlusIcon,
   //   name: "Sign Up",
   //   path: "/sign-up",
   //   element: <SignUp />,
   // },
-  {
-    icon: DocumentTextIcon,
-    name: "Docs",
-    href: "https://www.material-tailwind.com/docs/react/installation",
-    target: "_blank",
-    element: "",
-  },
+  // {
+  //   icon: DocumentTextIcon,
+  //   name: "Docs",
+  //   href: "https://www.material-tailwind.com/docs/react/installation",
+  //   target: "_blank",
+  //   element: "",
+  // },
 ];
 
 export default routesNavbar;

@@ -10,11 +10,11 @@ function Router() {
         element: <Home />,
     },
     {
-        path: "training",
+        path: "trainings",
         element: <Training />,
     },
     {
-      path: "hrms",
+      path: "hrmss",
       element: <Hrms />,
     },
   ];

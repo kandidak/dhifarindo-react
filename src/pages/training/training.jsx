@@ -261,7 +261,6 @@ export function Training() {
                         // variant="square"
                         className="h-full w-full shadow-xl"
                       />
-                      {/* <img src="/img/logo.png"></img> */}
                     </div>
                   </div>
                 </div>
