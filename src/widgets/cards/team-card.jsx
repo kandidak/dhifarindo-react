@@ -4,12 +4,14 @@ import { Card, Avatar, Typography } from "@material-tailwind/react";
 export function TeamCard({ img, name, position, socials }) {
   return (
     <Card color="transparent" shadow={false} className="text-center">
+      <div className="relative w-full h-full">
       <Avatar
         src={img}
         alt={name}
         size="xxl"
-        className="h-full w-full shadow-lg shadow-gray-500/25"
+        className="w-fit h-fit shadow-lg shadow-gray-500/25"
       />
+      </div>
       <Typography variant="h5" color="blue-gray" className="mt-6 mb-1">
         {name}
       </Typography>
